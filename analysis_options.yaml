@@ -11,6 +11,7 @@ linter:
 # analysis_options.yaml
 analyzer:
   exclude:
+    - "**/*.dart"
     - "**/*.g.dart"
     - "**/*.y.dart"
     - "**/*.freezed.dart"
