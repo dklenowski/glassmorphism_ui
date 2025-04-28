@@ -126,13 +126,19 @@ class GlassContainer extends StatelessWidget {
     );
 
     if (blur > 0) {
-      _child = ClipRRect(
-        borderRadius: _borderRadius,
-        child: BackdropFilter(
-          filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
-          child: _child,
-        ),
-      );
+      _child = shape == BoxShape.circle
+          ? ClipOval(
+              child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+              child: _child,
+            ))
+          : ClipRRect(
+              borderRadius: _borderRadius,
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+                child: _child,
+              ),
+            );
     }
 
     return CustomPaint(
@@ -146,7 +152,8 @@ class GlassContainer extends StatelessWidget {
         width: width,
         height: height,
         foregroundDecoration: BoxDecoration(
-          borderRadius: _borderRadius,
+          shape: shape,
+          borderRadius: shape == BoxShape.circle ? null : _borderRadius,
           border: _border,
         ),
         child: _child,

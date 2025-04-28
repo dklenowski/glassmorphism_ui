@@ -1,11 +1,12 @@
 name: glassmorphism_ui
 description: Create beautiful Glassmorphic ui using components provided by this package
-version: 0.3.0
+version: 0.4.0
 homepage: https://github.com/imsmilegarg/glassmorphism_ui.git
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ^3.6.0
+resolution: workspace
 
 dependencies:
   flutter:
